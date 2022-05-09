@@ -34,6 +34,7 @@ router.post('/', (req,res) => {
     num++
     res.json({mensaje:"Producto agregado con éxito"})
 })
+
 router.put
 
 router.delete('/:id', (req,res) => {
