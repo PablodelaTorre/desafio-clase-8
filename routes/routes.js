@@ -11,7 +11,8 @@ router.get('/', (req,res) => {
 })
 
 router.get('/:id',productoExistente,errorMiddleware,(req,res) => {
-    const prod = products.find(p => p.id == params)
+    const { id } = req.params;
+    const prod = productos.find(p => p.id == Number(id))
     res.json({prod})
 })
 
