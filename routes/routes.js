@@ -17,14 +17,32 @@ router.get('/:id',productoExistente,errorMiddleware,(req,res) => {
 
 router.post('/', (req,res) => {
     let producto = req.body
-    producto.push(id)
-    producto.id = num
+    const {title, price, thumbnail} = producto
+    console.log(title)
+    console.log(price)
+    console.log(thumbnail)
+    let id = num
+    const prod = {
+        title,
+        price,
+        thumbnail,
+        id
+    }
+    console.log(prod)
+    productos.push(prod)
     num++
-    productos.push(producto)
     res.json({mensaje:"Producto agregado con éxito"})
 })
 router.put
-router.delete
+
+router.delete('/:id', (req,res) => {
+    const { id } = req.params;
+    productos.forEach(produc => {
+        if(produc.id){
+            productos.filter(x => x.id !== id)
+        }
+    })
+})
 
 
 module.exports = router 
